@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Guide | ConsultantCo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>body { font-family: 'Inter', sans-serif; }</style>
+</head>
+<body class="bg-slate-900 text-white min-h-screen">
+
+    <nav class="fixed w-full z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-800 px-4 py-4 top-0 left-0">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-xl font-black tracking-tighter text-indigo-500">COLDVERT.</a>
+            <div class="flex items-center space-x-4 md:space-x-8 font-bold text-[10px] md:text-xs uppercase tracking-widest text-slate-400">
+                <a href="index.html" class="hover:text-white transition">Home</a>
+                <a href="work.html" class="hover:text-white transition">Work</a>
+                <a href="guide.html" class="text-indigo-500 border border-indigo-500 px-3 py-1.5 rounded-full hover:bg-indigo-500 hover:text-white transition">Free PDF</a>
+            </div>
+        </div>
+    </nav>
+
+
+    <main class="flex flex-col items-center justify-center px-6 pt-32 pb-20 min-h-screen">
+        <div class="max-w-4xl w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            
+            <div class="text-center md:text-left">
+                <span class="text-indigo-500 font-bold tracking-widest uppercase text-sm">Free Playbook</span>
+                <h1 class="text-4xl md:text-5xl font-bold mt-4 mb-6 leading-tight">Small Audience, <span class="text-indigo-500 italic">Massive Impact.</span></h1>
+                <p class="text-slate-400 text-lg mb-8">Download our 2026 guide on how to monetize a tiny following by building deep authority.</p>
+                <ul class="space-y-4 text-slate-300 text-left inline-block md:block">
+                    <li class="flex items-center gap-3">
+                        <span class="text-indigo-500">✔</span> The "High-Ticket" DM framework
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <span class="text-indigo-500">✔</span> Content that attracts "Lurkers"
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <span class="text-indigo-500">✔</span> Converting Likes into Sales Calls
+                    </li>
+                </ul>
+            </div>
+
+            <div class="bg-white text-slate-900 p-8 md:p-10 rounded-[2.5rem] shadow-2xl">
+                <h2 class="text-2xl font-bold mb-2 text-center">Secure the PDF</h2>
+                <p class="text-slate-500 mb-8 text-center text-sm">Where should we send your copy?</p>
+                
+                <form action="https://script.google.com/macros/s/AKfycbxd23a8XHfIBWg3OnLtOdz3OSEijOUaaM8golvKpqRsG2mwV0BJ5Chp8N3zbS0A2qCJ/exec" 
+                      method="POST" 
+                      id="lead-form" 
+                      class="space-y-4">
+                    
+                    <input type="email" 
+                           name="email" 
+                           placeholder="work-email@company.com" 
+                           required 
+                           class="w-full p-4 bg-slate-50 border border-slate-200 rounded-xl outline-none focus:ring-2 focus:ring-indigo-600 transition">
+                    
+                    <button type="submit" 
+                            id="submit-btn"
+                            class="w-full bg-indigo-600 text-white py-4 rounded-xl font-bold text-lg hover:bg-indigo-700 transition shadow-lg active:scale-95">
+                        Download Guide Now
+                    </button>
+                </form>
+                
+                <p id="success-msg" class="hidden mt-4 text-center text-sm text-green-600 font-bold animate-pulse">
+                    Success! Check your downloads folder.
+                </p>
+                
+                <p class="text-[10px] text-slate-400 mt-6 text-center uppercase tracking-widest">Join 2,400+ other entrepreneurs</p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+      const form = document.getElementById('lead-form');
+      const btn = document.getElementById('submit-btn');
+      const msg = document.getElementById('success-msg');
+
+      form.onsubmit = function() {
+        btn.innerText = "Processing...";
+        btn.disabled = true;
+        btn.style.opacity = "0.5";
+
+        setTimeout(() => {
+            msg.classList.remove('hidden');
+            btn.innerText = "Check Downloads";
+            // Ensure guide.pdf is in the same folder as this file!
+            window.location.href = 'guide.pdf';
+        }, 1500); 
+      };
+    </script>
+</body>
+</html>
